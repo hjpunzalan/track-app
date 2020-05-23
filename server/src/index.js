@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 
 dotenv.config({ path: "config.env" });
@@ -25,6 +26,9 @@ mongoose.connection.on("error", (err) => {
 app.get("/", (req, res) => {
 	res.send("Hi theere!!!");
 });
+
+// body parser middleware
+app.use(bodyParser.json());
 
 // Routes
 app.use(authRoutes);
