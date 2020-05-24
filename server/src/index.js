@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 
 dotenv.config({ path: "config.env" });
 
+const requireAuth = require("./middlewares/requireAuth");
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
@@ -27,8 +28,8 @@ mongoose.connection.on("error", (err) => {
 	console.error("Error connecting to mongo", err);
 });
 
-app.get("/", (req, res) => {
-	res.send("Hi theere!!!");
+app.get("/", requireAuth, (req, res) => {
+	res.send(`Your email: ${req.user.email}`);
 });
 
 // body parser middleware
