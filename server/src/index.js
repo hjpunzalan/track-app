@@ -1,5 +1,6 @@
 // Models
 require("./models/User");
+require("./models/Track");
 
 const dotenv = require("dotenv");
 const express = require("express");
@@ -10,6 +11,7 @@ dotenv.config({ path: "config.env" });
 
 const requireAuth = require("./middlewares/requireAuth");
 const authRoutes = require("./routes/authRoutes");
+const trackRoutes = require("./routes/trackRoutes");
 
 const app = express();
 
@@ -37,6 +39,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use(authRoutes);
+app.use(trackRoutes);
 
 app.listen(3000, () => {
 	console.log("Listening on app 3000");
