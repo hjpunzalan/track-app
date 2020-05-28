@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-const TrackListScreen = () => {
+const TrackListScreen = ({ navigation }) => {
 	return (
 		<View>
 			<Text style={{ fontSize: 48 }}>Track List</Text>
