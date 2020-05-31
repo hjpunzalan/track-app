@@ -2,5 +2,5 @@ import axios from "axios";
 
 export default axios.create({
 	// To be changed every 8hrs
-	baseURL: "http://b07145ceb948.ngrok.io",
+	baseURL: "http://b018bd0a021e.ngrok.io",
 });
