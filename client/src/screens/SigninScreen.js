@@ -9,10 +9,7 @@ const SigninScreen = () => {
 	const { state, signin, clearErrorMessage } = useContext(AuthContext);
 	return (
 		<View style={styles.container}>
-			<NavigationEvents
-				onWillBlur={clearErrorMessage}
-				onWillFocus={clearErrorMessage}
-			/>
+			<NavigationEvents onWillFocus={clearErrorMessage} />
 			<AuthForm
 				headerText="Sign in to your Account"
 				errorMessage={state.errorMessage}
