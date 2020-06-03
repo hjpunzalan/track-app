@@ -4,15 +4,15 @@ const tenMetersWithDegrees = 0.0001;
 
 const getLocation = (increment) => {
 	return {
-		timestamp: 100000000,
+		timestamp: 1000000,
 		coords: {
 			speed: 0,
 			heading: 0,
 			accuracy: 5,
 			altitudeAccuracy: 5,
 			altitude: 5,
-			longitude: 115.938969 + increment * tenMetersWithDegrees,
-			latitude: -32.00727 + increment * tenMetersWithDegrees,
+			longitude: 115.938892526 + increment * tenMetersWithDegrees,
+			latitude: -32.0072034039 + increment * tenMetersWithDegrees,
 		},
 	};
 };
