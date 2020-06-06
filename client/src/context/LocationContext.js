@@ -18,7 +18,6 @@ const addLocation = (dispatch) => (location) => {
 		type: "add_current_location",
 		payload: location,
 	});
-	console.log("hi there");
 };
 
 export const { Context, Provider } = createDataContext(
