@@ -21,15 +21,19 @@ export default (shouldTrack, callback) => {
 					timeInterval: 1000,
 					distance: 10,
 				},
-				(location) => {
-					callback(location);
-				}
+				callback
 			);
 			setSubscriber(sub);
 		} catch (err) {
 			setErr(err.message);
 		}
 	};
+
+	// Cant add callback to dependency of useEffect because a new location will trigger an update of callback and startWatching,
+	//  everytime theeres a new location thus breaking the app
+	// 	because a new call back will always be called
+	// Need to use callback hook to prevent this
+	// useCallback does not send a new callback if state.recording is the same
 
 	useEffect(() => {
 		if (shouldTrack) {
@@ -38,7 +42,7 @@ export default (shouldTrack, callback) => {
 			subscriber.remove();
 			setSubscriber(null);
 		}
-	}, [shouldTrack]);
+	}, [shouldTrack, callback]);
 
 	return [err];
 };
