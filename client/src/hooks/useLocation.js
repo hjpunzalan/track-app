@@ -42,6 +42,10 @@ export default (shouldTrack, callback) => {
 			subscriber.remove();
 			setSubscriber(null);
 		}
+		// Prevents multiple startwatching calls
+		return () => {
+			if (subscriber) subscriber.remove();
+		};
 	}, [shouldTrack, callback]);
 
 	return [err];
